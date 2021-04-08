@@ -46,12 +46,9 @@ void setup() {
 
 void loop() {
 
-  valuebutton = digitalWrite (onoff);
+  valuebutton = digitalRead (onoff);
 
   if (valuebutton == LOW){
-
-  digitalWrite (relay1, LOW);
-  digitalWrite (relay2, HIGH);
 
   uint16_t blocks;
   pixy.setLamp(1,1);
@@ -77,6 +74,8 @@ void loop() {
 
   if (x <= 5 && y <= 5){
     depan ();
+    digitalWrite (relay1, LOW);
+    digitalWrite (relay2, HIGH);
     }
 
   else if (x >= 5 && y >= 5){
@@ -90,6 +89,8 @@ void loop() {
     }
 
   if (state == 1) {
+    digitalWrite (relay1, LOW);
+    digitalWrite (relay2, HIGH);
 
     if (x <=60){
       kanan ();
@@ -110,7 +111,7 @@ void loop() {
 
   else {
     digitalWrite (relay1, HIGH);
-    digitalWrite (relay2, LOW);
+    digitalWrite (relay2, HIGH);
     }
     
     }

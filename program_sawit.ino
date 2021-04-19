@@ -78,11 +78,16 @@ void loop() {
     digitalWrite (relay2, HIGH);
     }
 
-  else if (x >= 5 && y >= 5){
+  if (x >= 5 && y >= 5 && signature == 2){
     state = 1;
     }
+  
+  if (signature == 33){
+    state = 0;
+  }
+    
 
-  if (signature == 5){
+  if (signature == 4){
     kanan();
     delay (2000);
     Stop();
@@ -112,6 +117,7 @@ void loop() {
   else {
     digitalWrite (relay1, HIGH);
     digitalWrite (relay2, HIGH);
+    Stop ();
     }
     
     }
